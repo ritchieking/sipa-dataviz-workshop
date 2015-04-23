@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <title>Using R for graphics</title>
+    <link type="text/css" rel="stylesheet" href="assets/css/github-markdown.css">
+    <link type="text/css" rel="stylesheet" href="assets/css/hljs-github.min.css"/>
+    <style>
+      body {
+        min-width: 200px;
+        max-width: 790px;
+        margin: 0 auto;
+        padding: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <article class="markdown-body"><h1 id="using-r-for-graphics">Using R for graphics</h1>
+<p><a href="http://www.r-project.org/">http://www.r-project.org/</a></p>
+<blockquote>
+<p>R is a free software environment for statistical computing and graphics.</p>
+</blockquote>
+<p>&quot;Software environment&quot; means that it&#39;s both a programming language and a space in which to use that language (i.e. the R console, which, among other things, has a built in way of rendering graphics).</p>
+<p>R can do a lot of things. It can clean data, it can do analysis, it can make graphics... it can even scrape the web. A lot of people, myself included, use R to prototype graphics or, at least to get a quick look at the data. Here&#39;s an example from Kevin Quealy of the New York Times. Read <a href="http://chartsnthings.tumblr.com/post/62679766588/19-sketches-of-quarterback-timelines">this blog post</a> for the whole story.</p>
+<p><strong>Kevin&#39;s initial charting in R</strong></p>
+<p class="img-container"><img src="http://cl.ly/image/3J3s2C2j3x1v/Image%202015-04-22%20at%207.58.48%20AM.png" alt=""></p>
+<p><strong>Kevin&#39;s final graphic</strong></p>
+<p class="img-container"><img src="http://cl.ly/image/2Q2d2n0Z3I23/Image%202015-04-22%20at%207.59.32%20AM.png" alt=""></p>
+<p>When you come up with a prototype that you like, you can either start building it for the web using JavaScript, or you can just export a pdf of the prototype from R, pull it into Illustrator and polish it off.</p>
+<p>But we&#39;re getting way ahead of ourselves. Let&#39;s start with the basics.</p>
+<h2 id="the-console">The Console</h2>
+<p>I&#39;ve always used the basic R console. Some people prefer <a href="http://www.rstudio.com/">R Studio</a>, which has more features and is a little more user-friendly. Feel free to try it out.</p>
+<p>Here&#39;s what the console looks like. (Yours is probably white instead of black, I&#39;ve just customized mine.)</p>
+<p class="img-container"><img src="http://cl.ly/image/28102z2q2r1T/Image%202015-04-22%20at%208.08.35%20AM.png" alt=""></p>
+<p>Using the console is pretty straightforward — you enter stuff, it gives you results.</p>
+<p class="img-container"><img src="http://cl.ly/image/1D3g2E1W101Z/Image%202015-04-22%20at%208.11.55%20AM.png" alt=""></p>
+<p>That [1] you see in brackets just indicates that the row of results you are looking at starts with the first thing in your list of results. (Yeah, obviously... your result is only on thing.) You&#39;ll see why this matters later.</p>
+<p>Sometimes you do something R doesn&#39;t like. It gives you an error.</p>
+<p class="img-container"><img src="http://cl.ly/image/0g0K03102H37/Image%202015-04-22%20at%208.14.16%20AM.png" alt=""></p>
+<h2 id="the-basics">The Basics</h2>
+<h4 id="math">Math</h4>
+<p>R can do math. Really sophisticated math. Also really basic math.</p>
+<p class="img-container"><img src="http://cl.ly/image/1P0V0g3f1B3D/Image%202015-04-22%20at%208.18.02%20AM.png" alt=""></p>
+<h4 id="variables">Variables</h4>
+<p>In R, you can create variables to reference values, which is convenient. To do this, use the assignment operator, <code>&lt;-</code></p>
+<p class="img-container"><img src="http://cl.ly/image/1c0c2e022l3p/Image%202015-04-22%20at%208.26.06%20AM.png" alt=""></p>
+<h4 id="lists">Lists</h4>
+<p>Lists are central in R. To create a list, use the function <code>c</code>, which stands for combine or concatenate.</p>
+<p class="img-container"><img src="http://cl.ly/image/2522212Y2t1z/Image%202015-04-22%20at%208.29.56%20AM.png" alt=""></p>
+<p>You can do math with lists. Here&#39;s how that works</p>
+<p class="img-container"><img src="http://cl.ly/image/3O2v1v3K3L3a/Image%202015-04-22%20at%208.32.14%20AM.png" alt=""></p>
+<h4 id="functions">Functions</h4>
+<p>R has a lot of functions. Many of them operate on lists. Take <code>mean</code> for example</p>
+<p class="img-container"><img src="http://cl.ly/image/0S371t0b3Z3b/Image%202015-04-22%20at%208.31.18%20AM.png" alt=""></p>
+<h4 id="other-classes-of-data">Other classes of data</h4>
+<p>Numbers aren&#39;t the only things in R. It can also handle text (strings). You can make lists of strings and use functions on them.</p>
+<p class="img-container"><img src="http://cl.ly/image/0J2V1E1p2B3R/Image%202015-04-22%20at%208.43.51%20AM.png" alt=""></p>
+<h4 id="getting-help">Getting help</h4>
+<p>If you don&#39;t understand a function, you can use a <code>?</code> to pull up the documentation. But beware: it&#39;s usually very technical and dry, and often more useful for reminding yourself how to use a function you already understand than it is for learning how to use that function in the first place. Try Googling.</p>
+<p class="img-container"><img src="http://cl.ly/image/1y0c0p3s2J16/Image%202015-04-22%20at%208.46.42%20AM.png" alt=""></p>
+<p class="img-container"><img src="http://cl.ly/image/0x1E2t1G0M1A/Image%202015-04-22%20at%208.47.03%20AM.png" alt=""></p>
+<h4 id="basic-plotting">Basic plotting</h4>
+<p>Plot one list of numbers against another.</p>
+<p class="img-container"><img src="http://cl.ly/image/3w1I1n263g39/Image%202015-04-22%20at%208.50.01%20AM.png" alt=""></p>
+<p class="img-container"><img src="http://cl.ly/image/2e2x1V3o010l/Image%202015-04-22%20at%208.50.26%20AM.png" alt=""></p>
+<p>Change the type of plot (<code>l</code> is for &#39;line&#39;)</p>
+<p class="img-container"><img src="http://cl.ly/image/3L3h390E0703/Image%202015-04-22%20at%208.54.52%20AM.png" alt=""></p>
+<p class="img-container"><img src="http://cl.ly/image/1p1u1v472r2G/Image%202015-04-22%20at%208.53.56%20AM.png" alt=""></p>
+<h4 id="data-frames">Data frames</h4>
+<p>Data frames are basically R&#39;s way of representing tables. They have rows and columns, and look like this</p>
+<p class="img-container"><img src="http://cl.ly/image/311B23360k0n/Image%202015-04-22%20at%209.03.33%20AM.png" alt=""></p>
+<p>As you can see by the way this data frame was constructed, each column is a list. To isolate a column, you can use a <code>$</code></p>
+<p class="img-container"><img src="http://cl.ly/image/04283b2J0P0J/Image%202015-04-22%20at%209.05.54%20AM.png" alt=""></p>
+<p>Once you&#39;ve done that, you can apply functions to that column, just like any other list</p>
+<p class="img-container"><img src="http://cl.ly/image/0V1T2p3f2e1o/Image%202015-04-22%20at%209.07.04%20AM.png" alt=""></p>
+<p>Here&#39;s how you add additional columns</p>
+<p class="img-container"><img src="http://cl.ly/image/1T0g462s2T05/Image%202015-04-22%20at%209.09.34%20AM.png" alt=""></p>
+<p>You can also add additional columns by doing math on existing columns</p>
+<p class="img-container"><img src="http://cl.ly/image/0v3y031N2B3y/Image%202015-04-22%20at%209.10.56%20AM.png" alt=""></p>
+<p>Plot one column against another</p>
+<p class="img-container"><img src="http://cl.ly/image/3F3Z2i2X3n3y/Image%202015-04-22%20at%209.14.15%20AM.png" alt=""></p>
+<p class="img-container"><img src="http://cl.ly/image/1S3q233t0j2O/Image%202015-04-22%20at%209.13.58%20AM.png" alt=""></p>
+<h4 id="keeping-track-of-your-work">Keeping track of your work</h4>
+<p>It&#39;s a really good idea to keep track of your work in a text editor, since most of the time you&#39;ll be performing a series of operations on a data frame. If you make a mistake along the way, it&#39;s good to be able to retrace your steps. It&#39;s also good to be able to save your work and come back to it. (Note, for R Studio users, you can simply save your &quot;workspace&quot; instead of maintaining a separate text file).</p>
+<p class="img-container"><img src="http://cl.ly/image/0i39282g2F3S/Image%202015-04-22%20at%209.24.16%20AM.png" alt=""></p>
+<h4 id="reading-in-an-external-data-file">Reading in an external data file</h4>
+<p>Say you want to bring <a href="https://docs.google.com/spreadsheets/d/1B_XGcRUvO1n2yLcDOfuBkgqW_64TIbxdl5ZZw3DgMaY/edit?usp=sharing">this data</a> into R. After you&#39;ve downloaded it as a CSV file, the first step is to set your working directory so R knows where to find that file.</p>
+<p class="img-container"><img src="http://cl.ly/image/2Q2u0r2C2n2V/Image%202015-04-22%20at%209.38.35%20AM.png" alt=""></p>
+<p class="img-container"><img src="http://cl.ly/image/0V2r241Q0n1I/Image%202015-04-22%20at%209.39.00%20AM.png" alt=""></p>
+<p>You can also set your working directory using the <code>setwd()</code> function in R. This is a nice way to do it, because you can add that to the top of your R file.</p>
+<p class="img-container"><img src="http://cl.ly/image/2e2E072O083y/Image%202015-04-22%20at%209.40.37%20AM.png" alt=""></p>
+<p class="img-container"><img src="http://cl.ly/image/0j09350R1p2y/Image%202015-04-22%20at%209.41.24%20AM.png" alt=""></p>
+<p>To bring the file in to R and store the data as a data frame, use the <code>read.csv()</code> function</p>
+<p class="img-container"><img src="http://cl.ly/image/3X2d1N1i0n3D/Image%202015-04-22%20at%209.43.28%20AM.png" alt=""></p>
+<p>Don&#39;t worry about that <code>stringsAsFactors</code> business for now. Just know that in most cases, you want to set it equal to <code>FALSE</code>.</p>
+<p>To inspect your new data frame, use the <code>head()</code> function. That just gives you the first six rows so you can take a quick peek.</p>
+<p class="img-container"><img src="http://cl.ly/image/213w3o2i2E0w/Image%202015-04-22%20at%209.45.13%20AM.png" alt=""></p>
+<h4 id="writing-a-data-file">Writing a data file</h4>
+<p>Say you want to make some changes to a data frame and then export a new data file to share with somebody.</p>
+<p class="img-container"><img src="http://cl.ly/image/093F1g1G122P/Image%202015-04-22%20at%209.48.53%20AM.png" alt=""></p>
+<p>You can do that using the <code>write.csv()</code> function. (If you don&#39;t set <code>row.names=FALSE</code> then you&#39;ll have a column that just contains the row numbers in your output file — not very useful).</p>
+<p class="img-container"><img src="http://cl.ly/image/211j3v2w382i/Image%202015-04-22%20at%209.51.39%20AM.png" alt=""></p>
+<p class="img-container"><img src="http://cl.ly/image/1B2j0D3C1n0g/Image%202015-04-22%20at%209.53.30%20AM.png" alt=""></p>
+<p>Don&#39;t forget to save your work!</p>
+<p class="img-container"><img src="http://cl.ly/image/0o343G380P0Q/Image%202015-04-22%20at%2010.02.08%20AM.png" alt=""></p>
+<h4 id="saving-a-plot">Saving a plot</h4>
+<p>Say you want to chart how total meat consumption has changed over time.</p>
+<p class="img-container"><img src="http://cl.ly/image/0i1h3x3Y1e2i/Image%202015-04-22%20at%2010.08.11%20AM.png" alt=""></p>
+<p class="img-container"><img src="http://cl.ly/image/0J43281r3V3z/Image%202015-04-22%20at%2010.08.35%20AM.png" alt=""></p>
+<p>Add some options to make the chart better</p>
+<p class="img-container"><img src="http://cl.ly/image/2j0U1s3N0G2X/Image%202015-04-22%20at%2010.10.44%20AM.png" alt=""></p>
+<p class="img-container"><img src="http://cl.ly/image/1z402H2Y2M0K/Image%202015-04-22%20at%2010.11.06%20AM.png" alt=""></p>
+<p>To save the chart, you want to write it to a pdf instead of rendering it in R. To do that, you need to create the pdf file and tell R to write to it using <code>pdf()</code>. Then you generate the plot. Then you close the pdf file using <code>dev.off()</code>.</p>
+<p class="img-container"><img src="http://cl.ly/image/2g3R1a2T2e2p/Image%202015-04-22%20at%2010.14.28%20AM.png" alt=""></p>
+<p class="img-container"><img src="http://cl.ly/image/071l0v3x352a/Image%202015-04-22%20at%2010.15.01%20AM.png" alt=""></p>
+<p>Now you can pull that file into Illustrator to clean it up! Final reminder — save that work!</p>
+<p class="img-container"><img src="http://cl.ly/image/38080H0F2r3o/Image%202015-04-22%20at%2010.16.41%20AM.png" alt=""></p>
+<h4 id="packages">Packages</h4>
+<p>A lot of really smart people have written a bunch of really useful extensions of R, called packages. <code>ggplot2</code>, <code>dplyr</code>, <code>tidyr</code>, and <code>knitr</code> are some great ones. To install a package on your machine, run <code>install.packages()</code></p>
+<p class="img-container"><img src="http://cl.ly/image/2K1t1h3W3j28/Image%202015-04-22%20at%2010.23.07%20AM.png" alt=""></p>
+<p>Select any CRAN mirror you want to... the ones in the US are maybe faster?</p>
+<p class="img-container"><img src="http://cl.ly/image/1H2g1d0s0p1a/Image%202015-04-22%20at%2010.24.44%20AM.png" alt=""></p>
+<p>Then load the package using <code>library()</code></p>
+<p class="img-container"><img src="http://cl.ly/image/2y3H0O3C1g1o/Image%202015-04-22%20at%2010.25.41%20AM.png" alt=""></p>
+    </article>
+  </body>
+</html>
